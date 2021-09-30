@@ -1,0 +1,26 @@
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules
+
+npm_build:
+  image: node:latest
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - ./build
+
+deploy:
+  stage: deploy
+  dependencies:
+    - npm_build
+  image: python:latest
+  script:
+    - pip install awscli
+    - aws s3 sync ./build/ s3://react-test-bucket-yukccy

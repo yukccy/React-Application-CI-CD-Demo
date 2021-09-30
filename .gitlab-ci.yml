@@ -15,6 +15,11 @@ npm_build:
   artifacts:
     paths:
       - ./build
+  environment:
+    - production
+  only:
+    refs:
+      - main
 
 deploy:
   stage: deploy

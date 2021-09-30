@@ -16,11 +16,45 @@ npm_build:
     paths:
       - ./build
 
-deploy:
+deploy_prod:
   stage: deploy
   dependencies:
     - npm_build
   image: python:latest
+  environment:
+    name: production
+  only:
+    refs:
+      - main
   script:
     - pip install awscli
     - aws s3 sync ./build/ s3://$s3_bucket_name
+
+deploy_release:
+  stage: deploy
+  dependencies:
+    - npm_build
+  image: python:latest
+  environment:
+    name: release
+  only:
+    refs:
+      - release
+  script:
+    - pip install awscli
+    - aws s3 sync ./build/ s3://$s3_bucket_name
+
+deploy_dev:
+  stage: deploy
+  dependencies:
+    - npm_build
+  image: python:latest
+  environment:
+    name: dev
+  only:
+    refs:
+      - dev
+  script:
+    - pip install awscli
+    - aws s3 sync ./build/ s3://$s3_bucket_name
+

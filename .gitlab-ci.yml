@@ -23,4 +23,4 @@ deploy:
   image: python:latest
   script:
     - pip install awscli
-    - aws s3 sync ./build/ s3://react-test-bucket-yukccy
+    - aws s3 sync ./build/ s3://$s3_bucket_name

@@ -27,8 +27,10 @@ Your app is ready to be deployed!
 
 ### `CI/CD Pipeline`
 
-This project has attached a CI/CD pipeline to continously deploy the React application to AWS S3 bucket. You can access DEV, Release and Production environment by following url,
+This project has attached a CI/CD pipeline to continously deploy the React application to AWS S3 bucket. 
 
-DEV: http://react-test-bucket-dev-yukccy.s3-website.ap-east-1.amazonaws.com/
-Release: http://react-test-bucket-release-yukccy.s3-website.ap-east-1.amazonaws.com/
+You can access DEV, Release and Production environment by following url,
+
+DEV: http://react-test-bucket-dev-yukccy.s3-website.ap-east-1.amazonaws.com/ <br>
+Release: http://react-test-bucket-release-yukccy.s3-website.ap-east-1.amazonaws.com/ <br>
 Production: http://react-test-bucket-yukccy.s3-website.ap-east-1.amazonaws.com/
